@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Biglietteria</h1>
+</div>
+<form asp-action="VendiBiglietto" method="post">
+    <div>
+        <label>Nome: </label>
+        <input type="text" name="FirstName" required />
+    </div>
+
+    <div>
+        <label>Cognome: </label>
+        <input type="text" name="LastName" required />
+    </div>
+
+    <div>
+        <label>Sala: </label>
+        <select name="Sala" required>
+            <option value="SALA NORD">Nord</option>
+            <option value="SALA EST">Est</option>
+            <option value="SALA SUD">Sud</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Tipo Biglietto: </label>
+        <select name="TipoBiglietto" required>
+            <option value="Intero">Intero</option>
+            <option value="Ridotto">Ridotto</option>
+        </select>
+    </div>
+    <button type="submit">Vendi Biglietto</button>
+</form>
+
+<div>
+    <h3>Biglietti Venduti</h3>
+    @foreach (var sala in new string[] {"SALA NORD", "SALA EST", "SALA SUD"})
+    {
+        <div>
+            <h4>@sala</h4>
+            <p>Biglietti Totali: @Sala.getAllTickets(sala)</p>
+            <p>Biglietti Ridotti: @Sala.getRidotti(sala)</p>
+        </div>
+    }
+</div>
