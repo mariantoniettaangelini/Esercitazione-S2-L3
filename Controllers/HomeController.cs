@@ -23,6 +23,15 @@ namespace Esercitazione.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.TicketsNord = Sala.getAllTickets("SALA NORD");
+            ViewBag.RidottiNord = Sala.getRidotti("SALA NORD");
+
+            ViewBag.TicketsEst = Sala.getAllTickets("SALA EST");
+            ViewBag.RidottiEst = Sala.getRidotti("SALA EST");
+
+            ViewBag.TicketsSud = Sala.getAllTickets("SALA SUD");
+            ViewBag.RidottiSud = Sala.getRidotti("SALA SUD");
+
             return View();
         }
 

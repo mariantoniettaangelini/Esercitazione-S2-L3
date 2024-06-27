@@ -37,12 +37,12 @@
 
 <div>
     <h3>Biglietti Venduti</h3>
-    @foreach (var sala in new string[] {"SALA NORD", "SALA EST", "SALA SUD"})
+    @foreach (var sala in new[] { new { Name = "SALA NORD", Tickets = ViewBag.TicketsNord, Ridotti = ViewBag.RidottiNord }, new { Name = "SALA EST", Tickets = ViewBag.TicketsEst, Ridotti = ViewBag.RidottiEst }, new { Name = "SALA SUD", Tickets = ViewBag.TicketsSud, Ridotti = ViewBag.RidottiSud } })
     {
-        <div>
-            <h4>@sala</h4>
-            <p>Biglietti Totali: @Sala.getAllTickets(sala)</p>
-            <p>Biglietti Ridotti: @Sala.getRidotti(sala)</p>
-        </div>
+    <div>
+        <h4>@sala.Name</h4>
+        <p>Biglietti Totali: @sala.Tickets</p>
+        <p>Biglietti Ridotti: @sala.Ridotti</p>
+    </div>
     }
 </div>
